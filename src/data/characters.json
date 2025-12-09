@@ -1,0 +1,236 @@
+[
+    {
+        "name": "Ahri",
+        "role": [
+            "Mid"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Fizz",
+                "weight": 4
+            },
+            {
+                "characterName": "Yasuo",
+                "weight": 3
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Lee Sin",
+                "weight": 5
+            },
+            {
+                "characterName": "Amumu",
+                "weight": 3
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Yasuo",
+        "role": [
+            "Mid",
+            "Baron"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Lux",
+                "weight": 5
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Malphite",
+                "weight": 8
+            },
+            {
+                "characterName": "Janna",
+                "weight": 4
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Lux",
+        "role": [
+            "Mid",
+            "Support"
+        ],
+        "weight": 10,
+        "counters": [],
+        "synergies": [
+            {
+                "characterName": "Ezreal",
+                "weight": 6
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Ezreal",
+        "role": [
+            "Dragon"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Vayne",
+                "weight": 2
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Lux",
+                "weight": 6
+            },
+            {
+                "characterName": "Karma",
+                "weight": 4
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Malphite",
+        "role": [
+            "Baron",
+            "Support"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Jax",
+                "weight": 3
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Yasuo",
+                "weight": 8
+            },
+            {
+                "characterName": "Orianna",
+                "weight": 5
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Lee Sin",
+        "role": [
+            "Jungle"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Evelynn",
+                "weight": 4
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Ahri",
+                "weight": 5
+            },
+            {
+                "characterName": "Yasuo",
+                "weight": 4
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Jinx",
+        "role": [
+            "Dragon"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Caitlyn",
+                "weight": 2
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Lulu",
+                "weight": 7
+            },
+            {
+                "characterName": "Blitzcrank",
+                "weight": 5
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Lulu",
+        "role": [
+            "Support"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Zed",
+                "weight": 5
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Jinx",
+                "weight": 7
+            },
+            {
+                "characterName": "Kog'Maw",
+                "weight": 8
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Blitzcrank",
+        "role": [
+            "Support"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Soraka",
+                "weight": 4
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Jinx",
+                "weight": 5
+            },
+            {
+                "characterName": "Draven",
+                "weight": 4
+            }
+        ],
+        "icon": ""
+    },
+    {
+        "name": "Darius",
+        "role": [
+            "Baron"
+        ],
+        "weight": 10,
+        "counters": [
+            {
+                "characterName": "Nasus",
+                "weight": 3
+            }
+        ],
+        "synergies": [
+            {
+                "characterName": "Draven",
+                "weight": 2
+            }
+        ],
+        "icon": ""
+    }
+]
