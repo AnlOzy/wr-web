@@ -7,7 +7,7 @@ export const calculateScore = (
     enemies: (Character | null)[],
     allies: (Character | null)[]
 ): { score: number; reasons: string[] } => {
-    let score = 0;
+    let score = 1;
     const reasons: string[] = [];
 
     // Coefficients as per user request
