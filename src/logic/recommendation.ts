@@ -105,9 +105,13 @@ export const calculateRecommendations = (
 ): { character: Character; score: number; reason: string[] }[] => {
 
     // Convert to array and sort
-    const filledRoles = new Set<string>();
+    const filledRoleCounts = new Map<string, number>();
     allies.forEach(a => {
-        if (a) a.role.forEach(r => filledRoles.add(r));
+        if (a) {
+            a.role.forEach(r => {
+                filledRoleCounts.set(r, (filledRoleCounts.get(r) || 0) + 1);
+            });
+        }
     });
 
     return ALL_CHARACTERS.map(char => {
@@ -117,8 +121,18 @@ export const calculateRecommendations = (
 
         if (isPicked || isBanned) return null;
 
-        // Filter out if role is already filled
-        if (char.role.some(r => filledRoles.has(r))) return null;
+        // Filter out if role is already filled (User request: allow 2 Baron, 2 Mid)
+        // Check if ANY of the character's roles are still open.
+        // If a char is ["Mid", "Baron"], they are valid if EITHER Mid count < 2 OR Baron count < 2.
+        const isRoleOpen = char.role.some(r => {
+            const currentCount = filledRoleCounts.get(r) || 0;
+            if (r === 'Baron' || r === 'Mid') {
+                return currentCount < 2;
+            }
+            return currentCount < 1;
+        });
+
+        if (!isRoleOpen) return null;
 
         const { score, reasons } = calculateScore(char, enemies, allies);
 

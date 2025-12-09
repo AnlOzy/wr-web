@@ -8,11 +8,11 @@
         "counters": [
             {
                 "characterName": "Fizz",
-                "weight": 40
+                "weight": 45
             },
             {
                 "characterName": "Yasuo",
-                "weight": 35
+                "weight": 40
             }
         ],
         "synergies": [
@@ -22,7 +22,7 @@
             },
             {
                 "characterName": "Amumu",
-                "weight": 30
+                "weight": 52
             }
         ],
         "icon": ""
@@ -37,17 +37,17 @@
         "counters": [
             {
                 "characterName": "Lux",
-                "weight": 50
+                "weight": 55
             }
         ],
         "synergies": [
             {
                 "characterName": "Malphite",
-                "weight": 80
+                "weight": 60
             },
             {
                 "characterName": "Janna",
-                "weight": 45
+                "weight": 52
             }
         ],
         "icon": ""
@@ -58,12 +58,12 @@
             "Mid",
             "Support"
         ],
-        "weight": 50,
+        "weight": 51,
         "counters": [],
         "synergies": [
             {
                 "characterName": "Ezreal",
-                "weight": 65
+                "weight": 60
             }
         ],
         "icon": ""
@@ -73,11 +73,11 @@
         "role": [
             "Dragon"
         ],
-        "weight": 50,
+        "weight": 49,
         "counters": [
             {
                 "characterName": "Vayne",
-                "weight": 20
+                "weight": 45
             }
         ],
         "synergies": [
@@ -87,7 +87,7 @@
             },
             {
                 "characterName": "Karma",
-                "weight": 40
+                "weight": 55
             }
         ],
         "icon": ""
@@ -102,13 +102,13 @@
         "counters": [
             {
                 "characterName": "Jax",
-                "weight": 35
+                "weight": 40
             }
         ],
         "synergies": [
             {
                 "characterName": "Yasuo",
-                "weight": 85
+                "weight": 65
             },
             {
                 "characterName": "Orianna",
@@ -126,17 +126,17 @@
         "counters": [
             {
                 "characterName": "Evelynn",
-                "weight": 45
+                "weight": 48
             }
         ],
         "synergies": [
             {
                 "characterName": "Ahri",
-                "weight": 50
+                "weight": 55
             },
             {
                 "characterName": "Yasuo",
-                "weight": 40
+                "weight": 52
             }
         ],
         "icon": ""
@@ -150,17 +150,17 @@
         "counters": [
             {
                 "characterName": "Caitlyn",
-                "weight": 25
+                "weight": 45
             }
         ],
         "synergies": [
             {
                 "characterName": "Lulu",
-                "weight": 75
+                "weight": 65
             },
             {
                 "characterName": "Blitzcrank",
-                "weight": 50
+                "weight": 55
             }
         ],
         "icon": ""
@@ -174,17 +174,17 @@
         "counters": [
             {
                 "characterName": "Zed",
-                "weight": 50
+                "weight": 45
             }
         ],
         "synergies": [
             {
                 "characterName": "Jinx",
-                "weight": 70
+                "weight": 65
             },
             {
                 "characterName": "Kog'Maw",
-                "weight": 80
+                "weight": 60
             }
         ],
         "icon": ""
@@ -204,11 +204,11 @@
         "synergies": [
             {
                 "characterName": "Jinx",
-                "weight": 50
+                "weight": 55
             },
             {
                 "characterName": "Draven",
-                "weight": 40
+                "weight": 52
             }
         ],
         "icon": ""
@@ -222,13 +222,13 @@
         "counters": [
             {
                 "characterName": "Nasus",
-                "weight": 30
+                "weight": 45
             }
         ],
         "synergies": [
             {
                 "characterName": "Draven",
-                "weight": 25
+                "weight": 51
             }
         ],
         "icon": ""
@@ -248,7 +248,7 @@
         "synergies": [
             {
                 "characterName": "Lux",
-                "weight": 30
+                "weight": 52
             }
         ],
         "icon": ""
@@ -262,13 +262,13 @@
         "counters": [
             {
                 "characterName": "Lee Sin",
-                "weight": 35
+                "weight": 48
             }
         ],
         "synergies": [
             {
                 "characterName": "Caitlyn",
-                "weight": 60
+                "weight": 58
             }
         ],
         "icon": ""
@@ -288,7 +288,7 @@
         "synergies": [
             {
                 "characterName": "Shen",
-                "weight": 20
+                "weight": 52
             }
         ],
         "icon": ""
@@ -302,13 +302,13 @@
         "counters": [
             {
                 "characterName": "Caitlyn",
-                "weight": 40
+                "weight": 45
             }
         ],
         "synergies": [
             {
                 "characterName": "Nautilus",
-                "weight": 70
+                "weight": 60
             }
         ],
         "icon": ""
@@ -322,13 +322,13 @@
         "counters": [
             {
                 "characterName": "Leona",
-                "weight": 30
+                "weight": 45
             }
         ],
         "synergies": [
             {
                 "characterName": "Jinx",
-                "weight": 65
+                "weight": 60
             }
         ],
         "icon": ""
@@ -349,7 +349,7 @@
         "synergies": [
             {
                 "characterName": "Evelynn",
-                "weight": 35
+                "weight": 52
             }
         ],
         "icon": ""
@@ -363,13 +363,13 @@
         "counters": [
             {
                 "characterName": "Garen",
-                "weight": 70
+                "weight": 60
             }
         ],
         "synergies": [
             {
                 "characterName": "Cassiopeia",
-                "weight": 50
+                "weight": 55
             }
         ],
         "icon": ""
@@ -383,13 +383,13 @@
         "counters": [
             {
                 "characterName": "Rammus",
-                "weight": 80
+                "weight": 35
             }
         ],
         "synergies": [
             {
                 "characterName": "Taric",
-                "weight": 90
+                "weight": 70
             }
         ],
         "icon": ""
@@ -403,13 +403,13 @@
         "counters": [
             {
                 "characterName": "Draven",
-                "weight": 40
+                "weight": 45
             }
         ],
         "synergies": [
             {
                 "characterName": "Braum",
-                "weight": 75
+                "weight": 65
             }
         ],
         "icon": ""
@@ -423,13 +423,13 @@
         "counters": [
             {
                 "characterName": "Thresh",
-                "weight": 35
+                "weight": 48
             }
         ],
         "synergies": [
             {
                 "characterName": "Draven",
-                "weight": 60
+                "weight": 58
             }
         ],
         "icon": ""
