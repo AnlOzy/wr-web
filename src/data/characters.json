@@ -4,25 +4,25 @@
         "role": [
             "Mid"
         ],
-        "weight": 10,
+        "weight": 52,
         "counters": [
             {
                 "characterName": "Fizz",
-                "weight": 4
+                "weight": 40
             },
             {
                 "characterName": "Yasuo",
-                "weight": 3
+                "weight": 35
             }
         ],
         "synergies": [
             {
                 "characterName": "Lee Sin",
-                "weight": 5
+                "weight": 55
             },
             {
                 "characterName": "Amumu",
-                "weight": 3
+                "weight": 30
             }
         ],
         "icon": ""
@@ -33,21 +33,21 @@
             "Mid",
             "Baron"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [
             {
                 "characterName": "Lux",
-                "weight": 5
+                "weight": 50
             }
         ],
         "synergies": [
             {
                 "characterName": "Malphite",
-                "weight": 8
+                "weight": 80
             },
             {
                 "characterName": "Janna",
-                "weight": 4
+                "weight": 45
             }
         ],
         "icon": ""
@@ -58,12 +58,12 @@
             "Mid",
             "Support"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [],
         "synergies": [
             {
                 "characterName": "Ezreal",
-                "weight": 6
+                "weight": 65
             }
         ],
         "icon": ""
@@ -73,21 +73,21 @@
         "role": [
             "Dragon"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [
             {
                 "characterName": "Vayne",
-                "weight": 2
+                "weight": 20
             }
         ],
         "synergies": [
             {
                 "characterName": "Lux",
-                "weight": 6
+                "weight": 60
             },
             {
                 "characterName": "Karma",
-                "weight": 4
+                "weight": 40
             }
         ],
         "icon": ""
@@ -98,21 +98,21 @@
             "Baron",
             "Support"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [
             {
                 "characterName": "Jax",
-                "weight": 3
+                "weight": 35
             }
         ],
         "synergies": [
             {
                 "characterName": "Yasuo",
-                "weight": 8
+                "weight": 85
             },
             {
                 "characterName": "Orianna",
-                "weight": 5
+                "weight": 55
             }
         ],
         "icon": ""
@@ -122,21 +122,21 @@
         "role": [
             "Jungle"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [
             {
                 "characterName": "Evelynn",
-                "weight": 4
+                "weight": 45
             }
         ],
         "synergies": [
             {
                 "characterName": "Ahri",
-                "weight": 5
+                "weight": 50
             },
             {
                 "characterName": "Yasuo",
-                "weight": 4
+                "weight": 40
             }
         ],
         "icon": ""
@@ -146,21 +146,21 @@
         "role": [
             "Dragon"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [
             {
                 "characterName": "Caitlyn",
-                "weight": 2
+                "weight": 25
             }
         ],
         "synergies": [
             {
                 "characterName": "Lulu",
-                "weight": 7
+                "weight": 75
             },
             {
                 "characterName": "Blitzcrank",
-                "weight": 5
+                "weight": 50
             }
         ],
         "icon": ""
@@ -170,21 +170,21 @@
         "role": [
             "Support"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [
             {
                 "characterName": "Zed",
-                "weight": 5
+                "weight": 50
             }
         ],
         "synergies": [
             {
                 "characterName": "Jinx",
-                "weight": 7
+                "weight": 70
             },
             {
                 "characterName": "Kog'Maw",
-                "weight": 8
+                "weight": 80
             }
         ],
         "icon": ""
@@ -194,21 +194,21 @@
         "role": [
             "Support"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [
             {
                 "characterName": "Soraka",
-                "weight": 4
+                "weight": 45
             }
         ],
         "synergies": [
             {
                 "characterName": "Jinx",
-                "weight": 5
+                "weight": 50
             },
             {
                 "characterName": "Draven",
-                "weight": 4
+                "weight": 40
             }
         ],
         "icon": ""
@@ -218,17 +218,17 @@
         "role": [
             "Baron"
         ],
-        "weight": 10,
+        "weight": 50,
         "counters": [
             {
                 "characterName": "Nasus",
-                "weight": 3
+                "weight": 30
             }
         ],
         "synergies": [
             {
                 "characterName": "Draven",
-                "weight": 2
+                "weight": 25
             }
         ],
         "icon": ""

@@ -94,7 +94,7 @@ export const DraftBoard: React.FC<DraftBoardProps> = ({ state, onSlotClick }) =>
                         {/* Dynamic Weight Display */}
                         {char && (
                             <span className={`text-xs font-bold ${currentScore > 0 ? 'text-green-400' : 'text-slate-500'}`}>
-                                {currentScore > 0 ? `+${currentScore}` : 0}
+                                {currentScore > 0 ? `+${currentScore.toFixed(2)}` : '0.00'}
                             </span>
                         )}
                     </div>
@@ -117,7 +117,7 @@ export const DraftBoard: React.FC<DraftBoardProps> = ({ state, onSlotClick }) =>
                         <div className="grid grid-cols-2 gap-4">
                             {recommendations.map(rec => (
                                 <div key={rec.character.name} className="flex flex-col">
-                                    <span className="font-bold text-white">{rec.character.name} <span className="text-green-400">+{rec.score}</span></span>
+                                    <span className="font-bold text-white">{rec.character.name} <span className="text-green-400">+{rec.score.toFixed(2)}</span></span>
                                     <span className="text-xs text-slate-400 truncate">{rec.reason.join(', ')}</span>
                                 </div>
                             ))}

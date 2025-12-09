@@ -21,8 +21,9 @@ export const calculateScore = (
         // So we look at `enemy.counters` to see if `character.name` is in it.
         const counterMatch = enemy.counters.find(c => c.characterName === character.name);
         if (counterMatch) {
-            score += counterMatch.weight;
-            reasons.push(`Counters ${enemy.name} (+${counterMatch.weight})`);
+            const normalizedWeight = counterMatch.weight / 100;
+            score += normalizedWeight;
+            reasons.push(`Counters ${enemy.name} (+${normalizedWeight.toFixed(2)})`);
         }
     });
 
@@ -32,8 +33,9 @@ export const calculateScore = (
         // Check if Ally has synergy with THIS character
         const synergyMatch = ally.synergies.find(s => s.characterName === character.name);
         if (synergyMatch) {
-            score += synergyMatch.weight;
-            reasons.push(`Synergy with ${ally.name} (+${synergyMatch.weight})`);
+            const normalizedWeight = synergyMatch.weight / 100;
+            score += normalizedWeight;
+            reasons.push(`Synergy with ${ally.name} (+${normalizedWeight.toFixed(2)})`);
         }
     });
 
