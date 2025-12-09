@@ -7,12 +7,12 @@ export const calculateScore = (
     enemies: (Character | null)[],
     allies: (Character | null)[]
 ): { score: number; reasons: string[] } => {
-    let score = 1;
+    let score = 0.5;
     const reasons: string[] = [];
 
     // Coefficients
-    const FACTOR_INCREASE = 0.25; // Boost for Advantages
-    const FACTOR_DECREASE = 0.20; // Penalty for Disadvantages
+    // Coefficients
+    const IMPACT_FACTOR = 10;
     const BASE_WINRATE = 50;
 
     // Helper: Apply delta logic
@@ -38,15 +38,15 @@ export const calculateScore = (
 
         if (normalized > 0) {
             // Advantage
-            const val = normalized * FACTOR_INCREASE;
+            const val = normalized * IMPACT_FACTOR;
             score += val;
             return { val, type: 'advantage' };
         } else if (normalized < 0) {
             // Disadvantage
             // normalized is negative, e.g. -0.10
-            // We want to subtract (0.10 * FACTOR_DECREASE)
+            // We want to subtract (0.10 * IMPACT_FACTOR)
             const absVal = Math.abs(normalized);
-            const val = absVal * FACTOR_DECREASE;
+            const val = absVal * IMPACT_FACTOR;
             score -= val;
             return { val, type: 'disadvantage' };
         }
