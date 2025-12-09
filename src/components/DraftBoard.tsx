@@ -55,6 +55,15 @@ export const DraftBoard: React.FC<DraftBoardProps> = ({ state, onSlotClick }) =>
         const isSelected = state.selection?.side === side && state.selection?.index === index && state.selection?.type === 'pick';
         const sideColor = side === 'blue' ? 'border-blue-500' : 'border-red-500';
 
+        // Calculate dynamic score for display
+        let currentScore = 0;
+        if (char) {
+            const enemies = side === 'blue' ? state.redTeam : state.blueTeam;
+            const allies = side === 'blue' ? state.blueTeam : state.redTeam;
+            const otherAllies = allies.filter(a => a && a.name !== char.name);
+            currentScore = calculateScore(char, enemies, otherAllies).score;
+        }
+
         return (
             <button
                 key={`${side}-pick-${index}`}
@@ -64,17 +73,31 @@ export const DraftBoard: React.FC<DraftBoardProps> = ({ state, onSlotClick }) =>
                     : 'border-transparent hover:bg-slate-800'
                     }`}
             >
-                <div className={`w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border-2 ${char ? sideColor : 'border-slate-700'}`}>
+                <div className={`w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border-2 relative ${char ? sideColor : 'border-slate-700'}`}>
                     {char ? (
-                        <span className="text-xs font-bold text-white">{char.name.substring(0, 2)}</span>
+                        <>
+                            <span className="text-xs font-bold text-white">{char.name.substring(0, 2)}</span>
+                            {/* Lane Badge */}
+                            <div className="absolute -bottom-1 -right-1 bg-slate-700 border border-slate-500 rounded-full w-4 h-4 flex items-center justify-center text-[8px] text-white" title={char.role.join(', ')}>
+                                {char.role[0][0]}
+                            </div>
+                        </>
                     ) : (
                         <span className="text-slate-600 font-mono text-lg">{index + 1}</span>
                     )}
                 </div>
                 <div className="flex-1 text-left">
-                    <p className={`text-sm font-medium ${char ? 'text-white' : 'text-slate-500'}`}>
-                        {char ? char.name : 'Empty Slot'}
-                    </p>
+                    <div className="flex justify-between items-center">
+                        <p className={`text-sm font-medium ${char ? 'text-white' : 'text-slate-500'}`}>
+                            {char ? char.name : 'Empty Slot'}
+                        </p>
+                        {/* Dynamic Weight Display */}
+                        {char && (
+                            <span className={`text-xs font-bold ${currentScore > 0 ? 'text-green-400' : 'text-slate-500'}`}>
+                                {currentScore > 0 ? `+${currentScore}` : 0}
+                            </span>
+                        )}
+                    </div>
                     <p className="text-[10px] text-slate-400">
                         {char ? char.role.join(', ') : 'Select...'}
                     </p>
