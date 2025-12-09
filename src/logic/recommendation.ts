@@ -10,9 +10,6 @@ export const calculateScore = (
     let score = 0.5;
     const reasons: string[] = [];
 
-    // Coefficients
-    // Coefficients
-    const IMPACT_FACTOR = 10;
     const BASE_WINRATE = 50;
 
     // Helper: Apply delta logic
@@ -38,15 +35,13 @@ export const calculateScore = (
 
         if (normalized > 0) {
             // Advantage
-            const val = normalized * IMPACT_FACTOR;
+            const val = normalized;
             score += val;
             return { val, type: 'advantage' };
         } else if (normalized < 0) {
             // Disadvantage
-            // normalized is negative, e.g. -0.10
-            // We want to subtract (0.10 * IMPACT_FACTOR)
             const absVal = Math.abs(normalized);
-            const val = absVal * IMPACT_FACTOR;
+            const val = absVal;
             score -= val;
             return { val, type: 'disadvantage' };
         }
