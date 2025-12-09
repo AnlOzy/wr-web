@@ -10,32 +10,46 @@ export const calculateScore = (
     let score = 0;
     const reasons: string[] = [];
 
-    // 1. Enemy Counters
+    // Coefficients as per user request
+    const FACTOR_INCREASE = 0.25; // 25% increase for Advantages
+    const FACTOR_DECREASE = 0.20; // 20% decrease for Disadvantages
+
+    // 1. ADVANTAGE: I Counter Enemy (Enemy is weak against me)
+    // Data definition: enemy.counters contains ME
     enemies.forEach(enemy => {
         if (!enemy) return;
-        // Check if THIS character counters the enemy
-        // "character.counters" lists who THIS character counters
-        // Wait, data structure says: `counters: CounterWeight[]`. 
-        // Logic request: "Look enemy characters -> check their 'counters' list"
-        // If Enemy A lists Character B as a counter, it means B is good against A.
-        // So we look at `enemy.counters` to see if `character.name` is in it.
-        const counterMatch = enemy.counters.find(c => c.characterName === character.name);
-        if (counterMatch) {
-            const normalizedWeight = counterMatch.weight / 100;
-            score += normalizedWeight;
-            reasons.push(`Counters ${enemy.name} (+${normalizedWeight.toFixed(2)})`);
+        const iCounterThem = enemy.counters.find(c => c.characterName === character.name);
+        if (iCounterThem) {
+            const raw = iCounterThem.weight / 100;
+            const val = raw * FACTOR_INCREASE;
+            score += val;
+            reasons.push(`Counters ${enemy.name} (+${val.toFixed(2)})`);
         }
     });
 
-    // 2. Ally Synergies
+    // 2. DISADVANTAGE: Enemy Counters Me (I am weak against enemy)
+    // Data definition: character.counters contains ENEMY
+    enemies.forEach(enemy => {
+        if (!enemy) return;
+        const theyCounterMe = character.counters.find(c => c.characterName === enemy.name);
+        if (theyCounterMe) {
+            const raw = theyCounterMe.weight / 100;
+            const val = raw * FACTOR_DECREASE;
+            score -= val; // DECREASE
+            reasons.push(`Countered by ${enemy.name} (-${val.toFixed(2)})`);
+        }
+    });
+
+    // 3. ADVANTAGE: Synergy (Ally works well with Me)
+    // Data definition: ally.synergies contains ME
     allies.forEach(ally => {
         if (!ally) return;
-        // Check if Ally has synergy with THIS character
         const synergyMatch = ally.synergies.find(s => s.characterName === character.name);
         if (synergyMatch) {
-            const normalizedWeight = synergyMatch.weight / 100;
-            score += normalizedWeight;
-            reasons.push(`Synergy with ${ally.name} (+${normalizedWeight.toFixed(2)})`);
+            const raw = synergyMatch.weight / 100;
+            const val = raw * FACTOR_INCREASE;
+            score += val;
+            reasons.push(`Synergy with ${ally.name} (+${val.toFixed(2)})`);
         }
     });
 
