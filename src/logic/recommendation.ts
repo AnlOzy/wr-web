@@ -10,46 +10,87 @@ export const calculateScore = (
     let score = 1;
     const reasons: string[] = [];
 
-    // Coefficients as per user request
-    const FACTOR_INCREASE = 0.25; // 25% increase for Advantages
-    const FACTOR_DECREASE = 0.20; // 20% decrease for Disadvantages
+    // Coefficients
+    const FACTOR_INCREASE = 0.25; // Boost for Advantages
+    const FACTOR_DECREASE = 0.20; // Penalty for Disadvantages
+    const BASE_WINRATE = 50;
 
-    // 1. ADVANTAGE: I Counter Enemy (Enemy is weak against me)
-    // Data definition: enemy.counters contains ME
-    enemies.forEach(enemy => {
-        if (!enemy) return;
-        const iCounterThem = enemy.counters.find(c => c.characterName === character.name);
-        if (iCounterThem) {
-            const raw = iCounterThem.weight / 100;
-            const val = raw * FACTOR_INCREASE;
+    // Helper: Apply delta logic
+    // impact > 0: Advantage (Add score with INCREASE factor)
+    // impact < 0: Disadvantage (Subtract score with DECREASE factor)
+    const applyImpact = (rawWeight: number, isEnemyPerspective: boolean) => {
+        // If isEnemyPerspective (Enemy vs Me):
+        //   Weight 60 means Enemy wins 60% -> Bad for Me -> Disadvantage.
+        //   Weight 40 means Enemy wins 40% -> Good for Me -> Advantage.
+        //   So Impact for Me = (50 - Weight)
+        // If !isEnemyPerspective (Me vs Enemy or Synergy):
+        //   Weight 60 means I win 60% -> Good for Me -> Advantage.
+        //   Impact for Me = (Weight - 50)
+
+        let delta = 0;
+        if (isEnemyPerspective) {
+            delta = BASE_WINRATE - rawWeight;
+        } else {
+            delta = rawWeight - BASE_WINRATE;
+        }
+
+        const normalized = delta / 100; // e.g., 10 diff -> 0.10
+
+        if (normalized > 0) {
+            // Advantage
+            const val = normalized * FACTOR_INCREASE;
             score += val;
-            reasons.push(`Counters ${enemy.name} (+${val.toFixed(2)})`);
+            return { val, type: 'advantage' };
+        } else if (normalized < 0) {
+            // Disadvantage
+            // normalized is negative, e.g. -0.10
+            // We want to subtract (0.10 * FACTOR_DECREASE)
+            const absVal = Math.abs(normalized);
+            const val = absVal * FACTOR_DECREASE;
+            score -= val;
+            return { val, type: 'disadvantage' };
         }
-    });
+        return { val: 0, type: 'neutral' };
+    };
 
-    // 2. DISADVANTAGE: Enemy Counters Me (I am weak against enemy)
-    // Data definition: character.counters contains ENEMY
+    // 1. Check ENEMY lists (Enemy vs Me)
     enemies.forEach(enemy => {
         if (!enemy) return;
-        const theyCounterMe = character.counters.find(c => c.characterName === enemy.name);
-        if (theyCounterMe) {
-            const raw = theyCounterMe.weight / 100;
-            const val = raw * FACTOR_DECREASE;
-            score -= val; // DECREASE
-            reasons.push(`Countered by ${enemy.name} (-${val.toFixed(2)})`);
+        const match = enemy.counters.find(c => c.characterName === character.name);
+        if (match) {
+            const { val, type } = applyImpact(match.weight, true);
+            if (val !== 0) {
+                if (type === 'advantage') reasons.push(`Strong vs ${enemy.name} (+${val.toFixed(2)})`);
+                else reasons.push(`Weak vs ${enemy.name} (-${val.toFixed(2)})`);
+            }
         }
     });
 
-    // 3. ADVANTAGE: Synergy (Ally works well with Me)
-    // Data definition: ally.synergies contains ME
+    // 2. Check MY lists (Me vs Enemy)
+    enemies.forEach(enemy => {
+        if (!enemy) return;
+        const match = character.counters.find(c => c.characterName === enemy.name);
+        if (match) {
+            const { val, type } = applyImpact(match.weight, false);
+            if (val !== 0) {
+                if (type === 'advantage') reasons.push(`Counters ${enemy.name} (+${val.toFixed(2)})`);
+                else reasons.push(`Countered by ${enemy.name} (-${val.toFixed(2)})`);
+            }
+        }
+    });
+
+    // 3. Synergies (Ally vs Me - wait, Synergy is cooperative)
+    // Weight implies "Combined Winrate" or "Ally happiness with Me"?
+    // Assuming Weight > 50 is Good.
     allies.forEach(ally => {
         if (!ally) return;
-        const synergyMatch = ally.synergies.find(s => s.characterName === character.name);
-        if (synergyMatch) {
-            const raw = synergyMatch.weight / 100;
-            const val = raw * FACTOR_INCREASE;
-            score += val;
-            reasons.push(`Synergy with ${ally.name} (+${val.toFixed(2)})`);
+        const match = ally.synergies.find(s => s.characterName === character.name);
+        if (match) {
+            const { val, type } = applyImpact(match.weight, false);
+            if (val !== 0) {
+                if (type === 'advantage') reasons.push(`Synergy w/ ${ally.name} (+${val.toFixed(2)})`);
+                else reasons.push(`Anti-Synergy w/ ${ally.name} (-${val.toFixed(2)})`);
+            }
         }
     });
 
